@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>registration form</title>
+        <meta name="description" content="type your form here">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/register.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="styles/print.css">
+        <link rel="stylesheet" href="styles/glow.css">
+    </head>
+    <body>
+    <main>
+        <img src="images/logo9.png" alt="logo9" class="logo9">
+        <script src="scripts/localstorage.js"></script>
+        <h1>Registration form</h1>
+        <form id="register" name="register" onsubmit="return checkForm()" method="post" action="results.html">
+                <legend>Personal details</legend>
+                <label>Name <span class="embolden">*</span></label>
+                <input id="yourName" name="yourName" type="text" title="please enter your name here" placeholder="your name" autofocus><br />
+                <label>Email <span class="embolden">*</span></label>
+                <input id="yourEmail" name="yourEmail" type="email" placeholder="your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br />
+                <label for="theDate">Date of birth<span class="embolden">*</span></label>
+                <input id="yourDate" name="theDate" type="date" autofocus/><br />
+                <label><span class="embolden">*</span>Age</label>
+                <input id="yourAge" name="age" type="number" min="0" max="100" autofocus><br />
+                <label>Gender</label>
+                <select id="yourGender" name="gender" required>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select><br />
+
+                <label>Select a branch</label>
+                    <select id="branch" name="branch" required>
+                        <option value="inviron">inviron</option>
+                        <option value="neuron">neuron</option>
+                        <option value="regex">regex</option>
+                    </select><br />
+                
+                <label>why did you wish to work here?</label>
+                <br />
+                <br />
+                <textarea id="comments" name="comments" placeholder="write at least 20 words(if possible)" maxlength="100" required></textarea>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <input type="reset" value="Reset">
+					&nbsp;&nbsp;&nbsp;
+					<input type="submit" value="SUBMIT">
+        </form>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="home.html" class="glow">Back to home page</a>
+    </main>
+    </body>
+</html>

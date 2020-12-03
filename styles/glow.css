@@ -1,0 +1,16 @@
+.glow{
+    position: absolute;
+    display: inline-block;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 20px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.glow:hover{
+    color: white;
+    background: lightskyblue;
+    box-shadow: 0 0 10px lightskyblue, 0 0 40px lightskyblue, 0 0 80px lightskyblue;
+}

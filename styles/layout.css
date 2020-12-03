@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Ubuntu;
+}
+
+#section1{
+    background-image: url(../images/layout.png);
+    background-size: cover;
+    background-position: center;
+    font-size: 14px;
+}
+
+nav{
+    width: 90%;
+    margin: auto;
+}
+
+ul{
+    display: inline-block;
+    list-style: none;
+    margin-left: 40%;
+    position: absolute;
+    left: 10%;
+}
+
+ul li,ul li a{
+    display: inline-block;
+}
+
+ul li a{
+    text-decoration: none;
+    color: antiquewhite;
+    padding:30px;
+}
+
+ul li a:hover{
+    color: lightskyblue;
+}
+
+.register{
+    border-radius: 5px;
+    border-color: lightskyblue;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: antiquewhite;
+}
+
+#section2{
+    width: 50%;
+    margin-top: 15%;
+    margin-bottom: 10%;
+}
+
+#section2 h3{
+    font-size: 50px;
+}
+
+#section2 p{
+    font-size: 30px;
+    padding-top: 10%;
+    font-family: Raleway;
+}
+
+.sushi{
+    width: 20%;
+    position: absolute;
+    left: 75%;
+    top: 140%;
+}
+
+.poster{
+    width: 10%;
+    position: absolute;
+    left: 60%;
+    top: 160%;
+}
+
+audio { 
+    width: 600px; 
+    box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+    border-radius: 90px;
+    transform: scale(1.05);
+  }
+
+  .logo9{
+    width: 5%;
+    position: absolute;
+    left: 2%;
+    top: 1%;
+}
+

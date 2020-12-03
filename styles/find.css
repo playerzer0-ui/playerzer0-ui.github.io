@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Ubuntu;
+    -webkit-print-color-adjust:exact;
+}
+
+h1{
+    font-size: 40px;
+}
+
+#section1{
+    width: 50%;
+}
+
+#section1 p{
+    font-size: 20px;
+    font-family: Raleway;
+}
+
+.weird{
+    width: 20%;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+}
