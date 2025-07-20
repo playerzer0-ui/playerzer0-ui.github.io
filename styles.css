@@ -59,7 +59,7 @@ aside {
     position: fixed;
     top: 0;
     left: 0;
-    width: 70px;
+    width: 60px;
     height: 100%;
     background-color: red;
     color: white;
@@ -71,8 +71,8 @@ aside {
 
 aside ion-icon {
     margin: 20px 0;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
 h1 {
@@ -86,7 +86,7 @@ p {
 }
 
 .container {
-    margin-left: 70px;
+    margin-left: 60px;
     padding: 2rem;
     width: calc(100vw - 20vw); /* Make sure it only takes the remaining space */
     min-height: 200vh; /* Just for testing scroll */
@@ -101,7 +101,7 @@ p {
 
 .tags span {
     padding: 10px;
-    background-color: red;
+    background-color: #444;
     border-radius: 10px;
     color: white;
     white-space: nowrap; /* Prevents breaking words mid-tag */
@@ -115,16 +115,46 @@ p {
     margin: 10rem 0;
 }
 
-.skill-gallery {
-    display: flex;
-    flex-wrap: wrap;
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
-    align-items: center;
+    list-style: none;
+    padding: 0;
+    color: white;
+    font-size: 1rem;
 }
 
-.skill-gallery img {
-    max-width: 100px;
-    max-height: 100px;
+.skill-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.5rem;
+    background-color: #444;
+    border-radius: 8px;
+}
+
+.skill-list img {
+    width: 30px;
+    height: 30px;
     object-fit: contain;
-    flex-shrink: 0;
+}
+
+.skill-list span {
+    white-space: nowrap;
+}
+
+
+
+
+@media (max-width: 600px) {
+    .skill-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 400px) {
+    .skill-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
