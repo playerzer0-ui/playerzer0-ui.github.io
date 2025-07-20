@@ -1,0 +1,130 @@
+/* From Uiverse.io by adamgiebl */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+/* From Uiverse.io by atishaytuli07 */ 
+body {
+  width: 100%;
+  height: 100%;
+  --s: 75px;
+
+  --tree-color: #228b22;
+  --ornament-color: #ff0000;
+  --snowflake-color: #ffffff;
+  --background-color: #000000;
+
+  --_c: var(--tree-color), var(--background-color) 1deg 79deg,
+    var(--background-color) 81deg;
+
+  --g0: conic-gradient(from 140deg at 50% 87.5%, var(--_c));
+  --g1: conic-gradient(from 140deg at 50% 81.25%, var(--_c));
+  --g2: conic-gradient(from 140deg at 50% 75%, var(--_c));
+
+  --g3: conic-gradient(at 10% 20%, #0000 75%, var(--snowflake-color) 0);
+  --g4: repeating-conic-gradient(
+    from 45deg,
+    var(--ornament-color) 0 25%,
+    #fff 0 50%
+  );
+
+  background:
+    var(--g0) 0 calc(var(--s) / -4),
+    var(--g0) var(--s) calc(3 * var(--s) / 4),
+    var(--g1),
+    var(--g1) var(--s) var(--s),
+    var(--g2) 0 calc(var(--s) / 4),
+    var(--g2) var(--s) calc(5 * var(--s) / 4),
+    var(--g3) calc(var(--s) / -10) var(--s),
+    var(--g3) calc(9 * var(--s) / 10) calc(2 * var(--s)),
+    var(--g4) calc(var(--s) / 2) var(--s);
+
+  background-size: calc(2 * var(--s)) calc(2 * var(--s));
+  background-position: center center;
+  background-repeat: repeat;
+}
+
+
+main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden; /* Prevent accidental horizontal scroll */
+}
+
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 100%;
+    background-color: red;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+aside ion-icon {
+    margin: 20px 0;
+    width: 40px;
+    height: 40px;
+}
+
+h1 {
+    font-size: clamp(40px, 8vw, 80px);
+    color: red;
+}
+
+p {
+    font-size: 18px;
+    color: white;
+}
+
+.container {
+    margin-left: 70px;
+    padding: 2rem;
+    width: calc(100vw - 20vw); /* Make sure it only takes the remaining space */
+    min-height: 200vh; /* Just for testing scroll */
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 2rem;
+}
+
+.tags span {
+    padding: 10px;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    white-space: nowrap; /* Prevents breaking words mid-tag */
+}
+
+.tags span:first-child {
+    margin-left: 0;
+}
+
+.add-margin-top {
+    margin: 10rem 0;
+}
+
+.skill-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.skill-gallery img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
