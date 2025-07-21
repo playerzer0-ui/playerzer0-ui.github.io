@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbox UI (Design Only)</title>
+    <link rel="stylesheet" href="chatbox.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <div class="profile-header">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <h4>Username</h4>
+        </div>
+        <div class="search-chat">
+            <div>
+                <input type="text" placeholder="Search chat...">
+                <ion-icon name="search-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="chatlist">
+            <div class="block active">
+                <div class="imgbox">
+                    <img class="cover" src="images/java-logo.png" alt="">
+                </div>
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Friend 1</h4>
+                        <p class="time">Now</p>
+                    </div>
+                    <div class="message-p">
+                        <p>Hello! This is a chat preview...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="imgbox">
+                    <img class="cover" src="images/java-logo.png" alt="">
+                </div>
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Friend 2</h4>
+                        <p class="time">Yesterday</p>
+                    </div>
+                    <div class="message-p">
+                        <p>Another conversation snippet...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="header">
+            <h4>Chat with Friend 1</h4>
+        </div>
+        <div class="chatbox">
+            <div class="message my-message">
+                <p>Hello Friend 1!<span>10:00 AM</span></p>
+            </div>
+            <div class="message frnd-message">
+                <p>Hi there!<span>10:01 AM</span></p>
+            </div>
+            <div class="message my-message">
+                <p>Are you free later?<span>10:02 AM</span></p>
+            </div>
+        </div>
+        <div class="chatbox-input">
+            <ion-icon name="happy-outline"></ion-icon>
+            <input type="text" placeholder="Type your message...">
+            <ion-icon name="send-outline"></ion-icon>
+        </div>
+    </div>
+</div>
+
+<!-- Optional: Ionicons for consistency -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
