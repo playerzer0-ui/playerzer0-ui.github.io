@@ -1,330 +1,406 @@
-/* From Uiverse.io by adamgiebl */ 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+/* =========================================
+   ROOT VARIABLES & GLOBAL RESETS
+   ========================================= */
+:root {
+  /* Modern Color Palette */
+  --bg-primary: #0f1115;        /* Deep dark blue-gray */
+  --bg-secondary: #181b22;      /* Slightly lighter for sidebars/cards */
+  --bg-tertiary: #20242d;       /* For inputs and inner elements */
+  --text-primary: #e4e6eb;      /* Off-white for less eye strain */
+  --text-secondary: #b0b3b8;    /* Gray for paragraphs */
+  --accent-red: #ff4757;        /* Vibrant, modern red */
+  --accent-red-hover: #ff6b81;  /* Lighter red for hovers */
+  --accent-green: #1db954;      /* Modern green for Fiverr link */
+  --border-color: #2c303a;      /* Subtle borders for depth */
+  
+  /* Typography */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Spacing & Sizing */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* From Uiverse.io by atishaytuli07 */ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+
+/* Removed the Uiverse background for a cleaner, professional look */
 body {
   width: 100%;
-  height: 100%;
-  --s: 75px;
-
-  --tree-color: #228b22;
-  --ornament-color: #ff0000;
-  --snowflake-color: #ffffff;
-  --background-color: #000000;
-
-  --_c: var(--tree-color), var(--background-color) 1deg 79deg,
-    var(--background-color) 81deg;
-
-  --g0: conic-gradient(from 140deg at 50% 87.5%, var(--_c));
-  --g1: conic-gradient(from 140deg at 50% 81.25%, var(--_c));
-  --g2: conic-gradient(from 140deg at 50% 75%, var(--_c));
-
-  --g3: conic-gradient(at 10% 20%, #0000 75%, var(--snowflake-color) 0);
-  --g4: repeating-conic-gradient(
-    from 45deg,
-    var(--ornament-color) 0 25%,
-    #fff 0 50%
-  );
-
-  background:
-    var(--g0) 0 calc(var(--s) / -4),
-    var(--g0) var(--s) calc(3 * var(--s) / 4),
-    var(--g1),
-    var(--g1) var(--s) var(--s),
-    var(--g2) 0 calc(var(--s) / 4),
-    var(--g2) var(--s) calc(5 * var(--s) / 4),
-    var(--g3) calc(var(--s) / -10) var(--s),
-    var(--g3) calc(9 * var(--s) / 10) calc(2 * var(--s)),
-    var(--g4) calc(var(--s) / 2) var(--s);
-
-  background-size: calc(2 * var(--s)) calc(2 * var(--s));
-  background-position: center center;
-  background-repeat: repeat;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Subtle ambient glow at the top to add depth without distracting */
+  background-image: radial-gradient(circle at 50% 0%, rgba(255, 71, 87, 0.08) 0%, transparent 50%);
+  background-attachment: fixed;
 }
 
-
+/* =========================================
+   LAYOUT (Sidebar & Main)
+   ========================================= */
 main {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden; /* Prevent accidental horizontal scroll */
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 aside {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 60px;
-    height: 100%;
-    background-color: red;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-a {
-    color: white;
-    text-decoration: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 100%;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem; /* This evenly spaces out everything in the sidebar */
+  padding: 1.5rem 0; /* Gives breathing room at the very top and bottom */
+  z-index: 100;
 }
 
 aside ion-icon {
-    margin: 20px 0;
-    width: 30px;
-    height: 30px;
+  width: 24px;
+  height: 24px;
+  color: var(--text-secondary);
+  /* Removed margins from here, using 'gap' on the aside instead */
 }
 
-h1 {
-    font-size: clamp(40px, 8vw, 80px);
-    color: red;
+/* ONLY target links (a tags) for the hover effect */
+aside a {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition), transform var(--transition);
 }
 
-p {
-    font-size: 18px;
-    color: white;
+aside a:hover {
+  color: var(--accent-red);
+  transform: scale(1.15);
 }
 
-.container {
-    margin-left: 60px;
-    padding: 2rem;
-    width: calc(100vw - 20vw); /* Make sure it only takes the remaining space */
-    min-height: 200vh; /* Just for testing scroll */
+a {
+  text-decoration: none;
 }
 
+/* Fix for the cramped social icons */
 .social-icons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem; /* Cleanly spaces out the logos inside the black box */
+  padding: 1rem 0.5rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
 }
 
 .social-icons ion-icon {
-    transition: color 0.3s ease;
+  transition: color var(--transition), transform var(--transition);
+  cursor: pointer;
 }
 
 .social-icons ion-icon:hover {
-    color: red;
-    cursor: pointer;
+  color: var(--accent-red);
+  transform: scale(1.15);
 }
 
+.container {
+  margin-left: 70px; /* Match sidebar width */
+  padding: 4rem; /* More breathing room */
+  width: calc(100vw - 70px);
+  max-width: 1200px; /* Prevents content from stretching too wide on large monitors */
+}
+
+/* =========================================
+   TYPOGRAPHY
+   ========================================= */
+h1 {
+  font-size: clamp(40px, 8vw, 72px);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+/* Accenting specific parts of your name/title if you wrap them in a span */
+h1 span {
+  color: var(--accent-red);
+}
+
+p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* =========================================
+   COMPONENTS (Tags, Skills, Cards)
+   ========================================= */
 .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 2rem;
 }
 
 .tags span {
-    padding: 0.5rem;
-    background-color: #444;
-    border-radius: 10px;
-    color: white;
-    white-space: nowrap; /* Prevents breaking words mid-tag */
+  padding: 0.4rem 0.9rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 50px; /* Pill shape for tags */
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: var(--transition);
 }
 
-.tags span:first-child {
-    margin-left: 0;
+.tags span:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
 }
 
 .add-margin-top {
-    margin: 10rem 0;
+  margin: 8rem 0;
 }
 
+/* Skills Section */
 .skill-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    color: white;
-    font-size: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  list-style: none;
+  padding: 0;
 }
 
 .skill-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.5rem;
-    background-color: #444;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.skill-list li:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-red);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .skill-list img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .skill-list span {
-    white-space: nowrap;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-.education {
-    color: white;
-}
-
+/* Education Section */
 .education-item {
-    margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.education-item:hover {
+  border-left-color: var(--accent-red);
 }
 
 .education-item h2 {
-    font-size: 1.25rem;
-    color: red;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .education-item h3 {
-    font-size: 1rem;
-    font-weight: normal;
-    color: white;
-    margin-bottom: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent-red);
+  margin: 0.5rem 0 0.25rem 0;
 }
 
 .education-item .date {
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
 }
 
 .honours {
-    font-weight: normal;
-    font-style: italic;
-    color: red;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-secondary);
 }
 
+/* Project Cards */
 .card-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 .card {
-    display: flex;
-    background-color: #333;
-    border-radius: 10px;
-    overflow: hidden;
-    color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    width: 100%;
-    max-width: 800px;
+  display: flex;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 900px;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  border-color: var(--text-secondary);
 }
 
 .card-img {
-    flex: 0 0 200px;
+  flex: 0 0 250px;
+  overflow: hidden;
 }
 
 .card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img img {
+  transform: scale(1.05); /* Subtle zoom on image when card is hovered */
 }
 
 .card-content {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
 }
 
 .card-content h2 {
-    color: red;
-    margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
 }
 
 .card-content p {
-    color: #ddd;
-    font-size: 0.95rem;
-    line-height: 1.4;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
 }
 
 .card-tags span {
-    padding: 0.25rem 0.5rem;
-    background-color: #555;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    color: white;
+  padding: 0.25rem 0.6rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .card-links {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.2rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card-link, .card-fiverr {
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .card-link {
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    background-color: red;
-    color: white;
-    border-radius: 5px;
-    width: fit-content;
-    transition: 0.3s;
+  background-color: var(--accent-red);
+  color: white;
 }
 
 .card-fiverr {
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    background-color: green;
-    color: white;
-    border-radius: 5px;
-    width: fit-content;
-    transition: 0.3s;
+  background-color: var(--accent-green);
+  color: white;
 }
 
 .card-link:hover {
-    background-color: #cc0000;
+  background-color: var(--accent-red-hover);
+  transform: translateY(-2px);
 }
 
 .card-fiverr:hover {
-    background-color: #008000;
+  background-color: #1ed760;
+  transform: translateY(-2px);
 }
 
-
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
 @media (max-width: 768px) {
-    .skill-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .container {
+    padding: 2rem 1.5rem;
+    width: 100vw;
+  }
 
-    .card {
-        flex-direction: column;
-        max-width: 100%;
-    }
+  .skill-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .card-img {
-        width: 100%;
-        height: auto;
-        flex: none;
-    }
+  .card {
+    flex-direction: column;
+    max-width: 100%;
+  }
 
-    .card-img img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    .card-content {
-        padding: 1rem;
-    }
+  .card-img {
+    width: 100%;
+    height: 200px;
+    flex: none;
+  }
 }
 
 @media (max-width: 400px) {
-    .skill-list {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .skill-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-links {
+    flex-direction: column;
+  }
 }
